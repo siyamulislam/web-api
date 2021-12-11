@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+
+</head>
+
+<body onload="getTime()">
+    <div>
+        <h1>Clock</h1>
+        <h2>Time <span id="hrs">00</span>: <span id="min">00</span>: <span id="sec">00</span>: <span id="ms">00</span>
+        </h2>
+    </div>
+    <script>
+        function setTime() {
+            const d = new Date();
+            document.getElementById("ms").innerText = d.getMilliseconds()
+            document.getElementById("sec").innerText = d.getSeconds()
+            document.getElementById("min").innerText = d.getMinutes()
+            document.getElementById("hrs").innerText = d.getHours()
+            if (d.getHours() < 10) {
+                document.getElementById("hrs").innerHTML = "0" + d.getHours();
+            }
+            if (d.getMinutes() < 10) {
+                document.getElementById("min").innerHTML = "0" + d.getMinutes();
+            }
+            if (d.getSeconds() < 10) {
+                document.getElementById("sec").innerHTML = "0" + d.getSeconds();
+            }
+        }
+
+        function getTime() {
+            setTimeout(setTime, 100);
+        }
+
+        setInterval(() => {
+            setTime()
+        }, 10);
+
+
+        // setInterval(() => {
+        //     ms++
+        //     console.log(ms);
+        //     if(ms==900){
+        //         sec++
+        //         ms=0
+        //         if(sec==60){
+        //             min++
+        //             sec=0
+        //         }
+        //     }
+        //     document.getElementById("ms").innerText = ms
+        //     document.getElementById("sec").innerText = sec
+        //     document.getElementById("min").innerText = min
+        // }, 1);
+
+
+
+    </script>
+    
+</body>
+
+</html>
