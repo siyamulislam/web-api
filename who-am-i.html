@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHO AM I</title>
+</head>
+
+<body>
+    <img width="150px"   id="uPic" src="" alt="" srcset="">
+    <h3>ID: <span id="uId">00000000</span></h3>
+    <h3>Name: <span id="uName">XXXXXXXXXX</span></h3>
+    <h4>Email: <span id="uEmail">XXXXXXXXX@gmail.com</span></h4>
+    <h4>cell: <span id="uCell"></span>017XXXXXXXXXX</h4>
+    <script>
+ 
+          getData();
+        async function getData() {
+            const response = await fetch("https://randomuser.me/api")
+            const data = await response.json()
+            const user= data.results[0]
+            const fullName= user.name.title+". "+ user.name.first+" "+user.name.last
+            const uId= user.id.name+" "+user.id.value
+            const uPicture= user.picture.thumbnail
+            document.getElementById("uPic").src=uPicture
+            document.getElementById("uId").innerText=uId
+            document.getElementById("uName").innerText=fullName
+            document.getElementById("uEmail").innerText=data.results[0].email
+            document.getElementById("uCell").innerText=data.results[0].cell
+           
+        }
+ 
+    </script>
+</body>
+
+</html>
