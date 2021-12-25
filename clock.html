@@ -13,6 +13,7 @@
     <div>
         <h1>Clock</h1>
         <h2>Time <span id="hrs">00</span>: <span id="min">00</span>: <span id="sec">00</span>: <span id="ms">00</span>
+        <h2>Time <span id="hrs2">00</span>: <span id="min2">00</span>: <span id="sec2">00</span>: <span id="ms2">00</span>
         </h2>
     </div>
     <script>
@@ -41,22 +42,22 @@
             setTime()
         }, 10);
 
-
-        // setInterval(() => {
-        //     ms++
-        //     console.log(ms);
-        //     if(ms==900){
-        //         sec++
-        //         ms=0
-        //         if(sec==60){
-        //             min++
-        //             sec=0
-        //         }
-        //     }
-        //     document.getElementById("ms").innerText = ms
-        //     document.getElementById("sec").innerText = sec
-        //     document.getElementById("min").innerText = min
-        // }, 1);
+        let ms2=0,sec2=0,min2=0;
+        setInterval(() => {
+            ms2++
+            console.log(ms2);
+            if(ms2==900){
+                sec2++
+                ms2=0
+                if(sec2==60){
+                    min2++
+                    sec2=0
+                }
+            }
+            document.getElementById("ms2").innerText = ms2
+            document.getElementById("sec2").innerText = sec2
+            document.getElementById("min2").innerText = min2
+        }, 1);
 
 
 
